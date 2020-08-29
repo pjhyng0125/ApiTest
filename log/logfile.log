@@ -1,0 +1,22 @@
+[2020-08-29 06:51:16,591][DEBUG](FileUtil.java:68) - [mapToJson] svae filePath: C:\SHARE\JSON\myData.json
+[2020-08-29 06:51:16,668][DEBUG](FileUtil.java:92) - [jsonToMap] load filePath: C:\SHARE\JSON\myData.json
+[2020-08-29 06:51:16,670][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: 00.json
+[2020-08-29 06:51:16,671][DEBUG](FileUtil.java:92) - [jsonToMap] load filePath: C:\SHARE\JSON\00.json
+[2020-08-29 06:51:16,672][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myDat - 복사본.json
+[2020-08-29 06:51:16,679][DEBUG](FileUtil.java:92) - [jsonToMap] load filePath: C:\SHARE\JSON\myDat - 복사본.json
+[2020-08-29 06:51:16,680][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myDat.json
+[2020-08-29 06:51:16,681][DEBUG](FileUtil.java:92) - [jsonToMap] load filePath: C:\SHARE\JSON\myDat.json
+[2020-08-29 06:51:16,682][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myData.json
+[2020-08-29 06:51:16,684][DEBUG](FileUtil.java:92) - [jsonToMap] load filePath: C:\SHARE\JSON\myData.json
+[2020-08-29 06:51:16,685][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myData2.json
+[2020-08-29 06:51:16,687][DEBUG](FileUtil.java:92) - [jsonToMap] load filePath: C:\SHARE\JSON\myData2.json
+[2020-08-29 06:51:16,688][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myData3.json
+[2020-08-29 06:51:16,690][DEBUG](FileUtil.java:92) - [jsonToMap] load filePath: C:\SHARE\JSON\myData3.json
+[2020-08-29 06:58:38,576][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: 00.json
+[2020-08-29 06:58:38,580][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myDat - 복사본.json
+[2020-08-29 06:58:38,581][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myDat.json
+[2020-08-29 06:58:38,583][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myData.json
+[2020-08-29 06:58:38,584][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myData2.json
+[2020-08-29 06:58:38,585][DEBUG](FileUtil.java:53) - [fileListFromFolder] file name: myData3.json
+[2020-08-29 07:24:42,496][INFO ](LogTest.java:32) - --
+[2020-08-29 07:24:42,498][INFO ](LogTest.java:33) - log4j.properties 로그 설정

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="src" path="src">
+		<attributes>
+			<attribute name="ignore_optional_problems" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="lib/apache-logging-log4j.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-annotations-2.11.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-core-2.11.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-databind-2.11.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-dataformat-xml-2.11.1.jar"/>
+	<classpathentry kind="lib" path="lib/jackson-module-jaxb-annotations-2.11.1.jar"/>
+	<classpathentry kind="lib" path="lib/jakarta.activation-api-1.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/jakarta.xml.bind-api-2.3.2.jar"/>
+	<classpathentry kind="lib" path="lib/json-20200518.jar"/>
+	<classpathentry kind="lib" path="lib/stax2-api-4.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/woodstox-core-6.2.1.jar"/>
+	<classpathentry kind="lib" path="C:/ApiTest/lib/commons-codec-1.14.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
