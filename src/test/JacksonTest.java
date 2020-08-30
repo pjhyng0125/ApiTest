@@ -36,10 +36,10 @@ public class JacksonTest {
         String filePath = "C:\\SHARE\\JSON\\jacksonTest.json";
         String folderPath = "C:\\SHARE\\JSON\\";
         
-        String savedFilePath = FileUtil.mapToJson(hmap, filePath);
+        // String savedFilePath = FileUtil.mapToJson(hmap, filePath);
         Map<String, Object> rtnMap = FileUtil.jsonToMap(filePath);
         
-        System.out.println("[main] rtnMap list: " + rtnMap.get("list"));
+        // System.out.println("[main] rtnMap list: " + rtnMap.get("list"));
         //System.out.println("[main] rtnMap listPeople: " + rtnMap.get("listPeople"));
         // List<Person> personList = rtnMap.get("listPeople");
         //System.out.println("[main] rtnMap first: " + rtnMap.get("first"));

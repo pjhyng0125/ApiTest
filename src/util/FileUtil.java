@@ -10,6 +10,8 @@ import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.InvalidParameterSpecException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -126,13 +128,14 @@ public class FileUtil {
 			// MAP -> JSON
 			String jsonString = mapper.writeValueAsString(hmap);
 			String jsonStringEnc = "";
-			
+
 			// JSON -> JSON ENC
-			EncryptUtil eu = new EncryptUtil(key);
+//			EncryptUtil eu = new EncryptUtil(key);
+//			jsonStringEnc = eu.aesEncode(jsonString);
 			try {
-				jsonStringEnc = eu.aesEncode(jsonString);
-			} catch (InvalidKeyException | NoSuchAlgorithmException | NoSuchPaddingException
-					| InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e) {
+				jsonStringEnc = EncryptUtil.encryptAES256(jsonString, key);
+			} catch (InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException | NoSuchPaddingException
+					| InvalidParameterSpecException | BadPaddingException | IllegalBlockSizeException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
@@ -140,7 +143,7 @@ public class FileUtil {
 			// JSON -> FILE
 			writeStringtData(jsonStringEnc, filePath);
 
-			System.out.println("[mapToJson] svae filePath: " + filePath);
+			System.out.println("[mapToJson] jsonStringEnc: " + jsonStringEnc);
 			return filePath;
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
@@ -158,25 +161,25 @@ public class FileUtil {
 	public static Map<String, Object> jsonToMap(String filePath) {
 		ObjectMapper mapper = new ObjectMapper();
 		String key = new File(filePath).getName();
-		
+
 		// FILE -> JSON ENC
 		String jsonStringEnc = readStringData(filePath);
 		System.out.println("[jsonToMap] jsonStringEnc: " + jsonStringEnc);
-		
+
 		String jsonString = "";
 
 		// JSON ENC -> JSON
-		try {
-			EncryptUtil eu = new EncryptUtil(key);
-			jsonString = eu.aesDecode(jsonStringEnc);
+//			EncryptUtil eu = new EncryptUtil(key);
+//			jsonString = eu.aesDecode(jsonStringEnc);
+			try {
+				jsonString = EncryptUtil.decryptAES256(jsonStringEnc, key);
+			} catch (InvalidKeyException | NoSuchPaddingException | NoSuchAlgorithmException | InvalidKeySpecException
+					| InvalidAlgorithmParameterException | BadPaddingException | IllegalBlockSizeException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			System.out.println("[jsonToMap] jsonString: " + jsonString);
-		} catch (InvalidKeyException | UnsupportedEncodingException | NoSuchAlgorithmException | NoSuchPaddingException
-				| InvalidAlgorithmParameterException | IllegalBlockSizeException | BadPaddingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		
+
 		try {
 			// JSON -> MAP
 			Map<String, Object> map = mapper.readValue(jsonString, Map.class);
