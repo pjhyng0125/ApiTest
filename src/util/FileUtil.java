@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidAlgorithmParameterException;
@@ -195,5 +196,39 @@ public class FileUtil {
 		System.out.println("[jsonToMap] load filePath: " + filePath);
 		// LOGGER.debug("[jsonToMap] load filePath: " + filePath);
 		return null;
+	}
+	
+	// 파일명 변경
+	// input: originFile, originStr, replaceStr
+	// output: result (파일명 변경 성공 여부)
+	// 확인 내용
+	// 1. pdf, txt, tiff 다 잘 바뀜
+	// 2. 루트 제외 하위 디렉토리명이 새 폴더로 바뀌는 현상 처음 1번 발생
+	// 3. 변경될 파일명이 이미 존재하면 기존 파일명 유지 (result = false)
+	public static Boolean renameFile(File originFile, String originStr, String replaceStr) {
+		Boolean result = false;
+		
+		String originFilePath = originFile.getAbsolutePath(); // 절대경로
+		System.out.println("originFilePath: " + originFilePath); // C:\SHARE\OFD\COMPLETED\12345678_DA001.tiff
+		
+		String replaceFilePath = originFilePath.replace(originStr, replaceStr); // C:\SHARE\OFD\COMPLETED\12345678_DH001.tiff
+		System.out.println("replaceFilePath: " + replaceFilePath);
+		
+		File replaceFile = new File(replaceFilePath); // C:\SHARE\OFD\COMPLETED\12345678_DH001.tiff
+		replaceFile.setExecutable(true, false);
+		replaceFile.setReadable(true, false);
+		replaceFile.setWritable(true, false);
+		originFile.setExecutable(true, false);
+		originFile.setReadable(true, false);
+		originFile.setWritable(true, false);
+		result = originFile.renameTo(replaceFile);
+		
+		if(result) {
+			System.out.println("[renameFile]" + originFilePath + " Rename To" + replaceFilePath);
+		} else {
+			System.out.println("[renameFile]" + originFilePath + " Fail to Rename");
+		}
+		
+		return result;
 	}
 }
